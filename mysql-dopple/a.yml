@@ -1,0 +1,56 @@
+
+
+# partir de una imagen de mysql y una de php
+
+## Mysql es la oficial de dokcer hub
+
+Cuatro variables:
+
+- MYSQL_ROOT_PASSWORD
+- MYSQL_USER
+- MYSQL_PASSWORD
+- MYSQL_DATABASE
+
+## Php
+
+- MYSQL_USER
+- MYSQL_PASSWORD
+- MYSQL_DATABASE
+
+## Crear una pieza
+
+overrides:
+  "_self":
+    "db + app":
+      MYSQL_USER
+      MYSQL_PASSWORD
+      MYSQL_DATABASE
+
+# crear una task
+
+task: {}
+
+"puzzle run app:app php /var/www/app/main.php "
+
+########## 1ª parte
+- Prefacio
+- Desarrollo
+- Epílogo
+
+
+########## 2ª parte
+- Prefacio
+ 
+  backup_bbdd:
+    db_aux:
+      - sh -c 'ahora=$(date +"%d_%m_%y"); mysqldump --user=$MYSQL_USER --password=$MYSQL_PASSWORD --host=db $MYSQL_DATABASE > "/home/aux/backup_$ahora.sql"'
+
+########## 3ª parte
+- phpmyadmin
+
+
+
+
+mysqli 
+
+
