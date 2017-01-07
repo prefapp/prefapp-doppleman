@@ -11,6 +11,12 @@ function process(){
         "version" => constant("VERSION"),
 
         "date" => time(),
+
+        "server_host" => $_SERVER["HTTP_HOST"],
+
+        "server_name" => $_SERVER["SERVER_NAME"]
+
+        
     
     );
     
